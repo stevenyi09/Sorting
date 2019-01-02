@@ -35,6 +35,6 @@ public class RunSorter {
 		System.out.print("Bubble sort: ");
 		printArray(IntSorter.bubbleSort(unsorted.clone()));
 		System.out.print("Insertion sort: ");
-		printArray(IntSorter.InsertionSort(unsorted.clone()));
+		printArray(IntSorter.insertionSort(unsorted.clone()));
 	}
 }

@@ -5,7 +5,8 @@ public class IntSorter {
 	 * Bubble sort.
 	 * <p>
 	 * This method takes the input list and sorts it in-place using bubble sort.
-	 * Optimized by reducing the method calls inside the loops.
+	 * Optimized by reducing the method calls inside the loops. Still takes
+	 * quadratic time, though.
 	 * </p>
 	 * 
 	 * @param list The list to be sorted.
@@ -26,7 +27,18 @@ public class IntSorter {
 		return list;
 	}
 
-	public static int[] InsertionSort(int[] list) {
+	/**
+	 * Insertion sort
+	 * <p>
+	 * Sorts an array of integers via insertion sort. Done in-place. O(n^2) time
+	 * complexity.
+	 * </p>
+	 * 
+	 * @param list Unsorted list.
+	 * @return Sorted list. Same address as the parameter list.
+	 */
+
+	public static int[] insertionSort(int[] list) {
 		int temp;
 		int start;
 		int length = list.length;
