@@ -19,9 +19,10 @@ class TestSorters {
 		sorted1 = unsorted1.clone();
 		Arrays.sort(sorted1);
 		unsorted2 = new int[size2];
-		for (int k = 0; k < size1; k++) {
+		for (int k = 0; k < size2; k++) {
 			unsorted2[k] = (int) (Math.random() * size2) + 1;
 		}
+		RunSorter.printArray(unsorted2);
 		sorted2 = unsorted2.clone();
 		Arrays.sort(sorted2);
 	}
@@ -30,13 +31,18 @@ class TestSorters {
 	void testBubbleSort() {
 		assertArrayEquals(sorted1, IntSorter.bubbleSort(unsorted1));
 		assertArrayEquals(sorted2, IntSorter.bubbleSort(unsorted2));
-		//fail("Not yet implemented");
 	}
 	
 	@Test
 	void testInsertionSort() {
 		assertArrayEquals(sorted1, IntSorter.insertionSort(unsorted1));
 		assertArrayEquals(sorted2, IntSorter.insertionSort(unsorted2));
+	}
+	
+	@Test
+	void testSelectionSort() {
+		assertArrayEquals(sorted1, IntSorter.selectionSort(unsorted1));
+		assertArrayEquals(sorted2, IntSorter.selectionSort(unsorted2));
 	}
 
 }

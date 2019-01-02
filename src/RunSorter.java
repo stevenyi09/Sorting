@@ -9,7 +9,7 @@ import java.util.Collections;
 
 public class RunSorter {
 
-	private static void printArray(int[] array) {
+	public static void printArray(int[] array) {
 		String toPrint = "[";
 		for (int k = 0; k < array.length - 1; k++) {
 			toPrint += "" + array[k] + ", ";

@@ -55,4 +55,28 @@ public class IntSorter {
 		}
 		return list;
 	}
+	
+	/**
+	 * Selection sort.
+	 * <p>
+	 * Sorts an input list via the selection sort algorithm.
+	 * </p>
+	 * @param list Input list, presumably unsorted.
+	 * @return The same list, now sorted in ascending order.
+	 */
+	public static int[] selectionSort(int[] list) {
+		int temp, minIndex = 0, length = list.length;
+		for (int k = 0; k < length; k++) {
+			minIndex = k;
+			for (int i = k; i < length; i++) {
+				if(list[i] < list[minIndex]) {
+					minIndex = i;
+				}
+			}
+			temp = list[k];
+			list[k] = list[minIndex];
+			list[minIndex] = temp;
+		}
+		return list;
+	}
 }
