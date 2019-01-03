@@ -92,7 +92,11 @@ public class IntSorter {
 	 *         different address.
 	 */
 	public static int[] mergeSort(int[] list) {
-		return mergeSortHelper(list);
+		int[] sorted = mergeSortHelper(list);
+		for (int k = 0; k < list.length; k++) {
+			list[k] = sorted[k];
+		}
+		return list;
 	}
 
 	/**

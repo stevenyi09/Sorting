@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 class TestSorters {
 	int[] unsorted1, sorted1, unsorted2, sorted2;
-	final int size1 = 50;
-	final int size2 = 1000;
+	final int size1 = 500;
+	final int size2 = 10000;
 
 	@BeforeEach
 	void setUp() throws Exception {
