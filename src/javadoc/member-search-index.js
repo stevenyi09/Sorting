@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"<Unnamed>","c":"IntSorter","l":"bubbleSort(int[])"},{"p":"<Unnamed>","c":"IntSorter","l":"InsertionSort(int[])"},{"p":"<Unnamed>","c":"IntSorter","l":"IntSorter()","url":"%3Cinit%3E()"}]
+memberSearchIndex = [{"p":"<Unnamed>","c":"IntSorter","l":"bubbleSort(int[])"},{"p":"<Unnamed>","c":"IntSorter","l":"insertionSort(int[])"},{"p":"<Unnamed>","c":"IntSorter","l":"IntSorter()","url":"%3Cinit%3E()"},{"p":"<Unnamed>","c":"IntSorter","l":"mergeSort(int[])"},{"p":"<Unnamed>","c":"IntSorter","l":"selectionSort(int[])"}]

@@ -55,12 +55,13 @@ public class IntSorter {
 		}
 		return list;
 	}
-	
+
 	/**
 	 * Selection sort.
 	 * <p>
 	 * Sorts an input list via the selection sort algorithm.
 	 * </p>
+	 * 
 	 * @param list Input list, presumably unsorted.
 	 * @return The same list, now sorted in ascending order.
 	 */
@@ -69,7 +70,7 @@ public class IntSorter {
 		for (int k = 0; k < length; k++) {
 			minIndex = k;
 			for (int i = k; i < length; i++) {
-				if(list[i] < list[minIndex]) {
+				if (list[i] < list[minIndex]) {
 					minIndex = i;
 				}
 			}
@@ -78,5 +79,83 @@ public class IntSorter {
 			list[minIndex] = temp;
 		}
 		return list;
+	}
+
+	/**
+	 * Merge sort.
+	 * <p>
+	 * Sorts an input list via merge sort.
+	 * </p>
+	 * 
+	 * @param list Input list, unsorted.
+	 * @return Sorted list with all the elements of the input list. Will be at a
+	 *         different address.
+	 */
+	public static int[] mergeSort(int[] list) {
+		return mergeSortHelper(list);
+	}
+
+	/**
+	 * Merge sort helper.
+	 * <p>
+	 * Helper method for the main mergeSort() method. On second inspection, this
+	 * helper method might as well be merged with the public method, as it's got
+	 * nothing extra.
+	 * </p>
+	 * 
+	 * @param list Unsorted list.
+	 * @return List, sorted.
+	 */
+	private static int[] mergeSortHelper(int[] list) {
+		int length = list.length;
+		if (length < 2) {
+			return list;
+		} else {
+			int split = length / 2;
+			int[] left = new int[split];
+			int[] right = new int[length - split];
+			for (int k = 0; k < length; k++) {
+				if (k < split) {
+					left[k] = list[k];
+				} else {
+					right[k - split] = list[k];
+				}
+			}
+			return merge(mergeSortHelper(left), mergeSortHelper(right));
+		}
+	}
+
+	/**
+	 * Merges two arrays.
+	 * <p>
+	 * Takes two sorted input arrays, starting at the beginning of each array, and
+	 * adding the lesser of the arrays' values to the merged array.
+	 * </p>
+	 * 
+	 * @param left  One of the arrays to be merged, called "left" for convenience.
+	 *              Assumed to already be sorted.
+	 * @param right One of the arrays to be merged, called "right" for convenience.
+	 *              Assumed to already be sorted.
+	 * @return An array with all of left's and right's values. This new array should be sorted.
+	 */
+	private static int[] merge(int[] left, int[] right) {
+		int[] sorted = new int[left.length + right.length];
+		int leftIndex = 0, rightIndex = 0;
+		for (int k = 0; k < sorted.length; k++) {
+			if (leftIndex >= left.length) {
+				sorted[k] = right[rightIndex];
+				rightIndex++;
+			} else if (rightIndex >= right.length) {
+				sorted[k] = left[leftIndex];
+				leftIndex++;
+			} else if (left[leftIndex] <= right[rightIndex]) {
+				sorted[k] = left[leftIndex];
+				leftIndex++;
+			} else if (right[rightIndex] < left[leftIndex]) {
+				sorted[k] = right[rightIndex];
+				rightIndex++;
+			}
+		}
+		return sorted;
 	}
 }

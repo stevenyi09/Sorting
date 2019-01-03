@@ -22,7 +22,7 @@ class TestSorters {
 		for (int k = 0; k < size2; k++) {
 			unsorted2[k] = (int) (Math.random() * size2) + 1;
 		}
-		RunSorter.printArray(unsorted2);
+		//RunSorter.printArray(unsorted2);
 		sorted2 = unsorted2.clone();
 		Arrays.sort(sorted2);
 	}
@@ -43,6 +43,12 @@ class TestSorters {
 	void testSelectionSort() {
 		assertArrayEquals(sorted1, IntSorter.selectionSort(unsorted1));
 		assertArrayEquals(sorted2, IntSorter.selectionSort(unsorted2));
+	}
+	
+	@Test
+	void testMergeSort() {
+		assertArrayEquals(sorted1, IntSorter.mergeSort(unsorted1));
+		assertArrayEquals(sorted2, IntSorter.mergeSort(unsorted2));
 	}
 
 }
