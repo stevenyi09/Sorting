@@ -1,4 +1,14 @@
-//Just a class to implement a bunch of different ways to sort integers.
+/**
+ * IntSorter class.
+ * <p>
+ * The bread and butter of this repository. Contains code for all of the sorting
+ * algorithms I currently have, with the addition of some helper classes, I
+ * suppose.
+ * </p>
+ * 
+ * @author Steven
+ *
+ */
 public class IntSorter {
 
 	/**
@@ -84,7 +94,7 @@ public class IntSorter {
 	/**
 	 * Merge sort.
 	 * <p>
-	 * Sorts an input list via merge sort.
+	 * Sorts an input list via merge sort. Out-of-place.
 	 * </p>
 	 * 
 	 * @param list Input list, unsorted.
@@ -92,17 +102,13 @@ public class IntSorter {
 	 *         different address.
 	 */
 	public static int[] mergeSort(int[] list) {
-		int[] sorted = mergeSortHelper(list);
-		for (int k = 0; k < list.length; k++) {
-			list[k] = sorted[k];
-		}
-		return list;
+		return mergeSortOPHelper(list);
 	}
 
 	/**
 	 * Merge sort helper.
 	 * <p>
-	 * Helper method for the main mergeSort() method. On second inspection, this
+	 * Helper method for the main mergeSortOP() method. On second inspection, this
 	 * helper method might as well be merged with the public method, as it's got
 	 * nothing extra.
 	 * </p>
@@ -110,7 +116,7 @@ public class IntSorter {
 	 * @param list Unsorted list.
 	 * @return List, sorted.
 	 */
-	private static int[] mergeSortHelper(int[] list) {
+	private static int[] mergeSortOPHelper(int[] list) {
 		int length = list.length;
 		if (length < 2) {
 			return list;
@@ -125,7 +131,7 @@ public class IntSorter {
 					right[k - split] = list[k];
 				}
 			}
-			return merge(mergeSortHelper(left), mergeSortHelper(right));
+			return merge(mergeSortOPHelper(left), mergeSortOPHelper(right));
 		}
 	}
 
@@ -140,7 +146,8 @@ public class IntSorter {
 	 *              Assumed to already be sorted.
 	 * @param right One of the arrays to be merged, called "right" for convenience.
 	 *              Assumed to already be sorted.
-	 * @return An array with all of left's and right's values. This new array should be sorted.
+	 * @return An array with all of left's and right's values. This new array should
+	 *         be sorted.
 	 */
 	private static int[] merge(int[] left, int[] right) {
 		int[] sorted = new int[left.length + right.length];
@@ -161,5 +168,20 @@ public class IntSorter {
 			}
 		}
 		return sorted;
+	}
+
+	/**
+	 * Tree sort.
+	 * <p>
+	 * Basic tree sort. Builds a binary search tree, then traverses the tree in
+	 * order to get the sorted values.
+	 * </p>
+	 * 
+	 * @param list list of integers
+	 * @return list, now sorted in place
+	 */
+	public static int[] treeSort(int[] list) {
+		BinaryTree tree = new BinaryTree(list);
+		return tree.inOrder();
 	}
 }

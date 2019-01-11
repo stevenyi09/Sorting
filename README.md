@@ -5,7 +5,6 @@ TODO:
 Add timer
 Add functionality to count array accesses/comparisons
 Add a GUI
-Tree sort
 Quicksort
 Heapsort
 Other sorts (TBD)
